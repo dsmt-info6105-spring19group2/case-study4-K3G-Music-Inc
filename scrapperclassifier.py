@@ -21,7 +21,7 @@ def scrape(k):
     for link in soup_level1.find_all('a', href=re.compile("/lyrics//*")):
         songs_list.append("https://www.musixmatch.com" + link.get('href'))
     complete_list = []
-    for song in songs_list:
+    for song in songs_list[:k]:
         song_response = requests.get(song, headers={'User-Agent': 'Mozilla/5.0'})
         soup = BeautifulSoup(song_response.content, 'html.parser')
         title = soup.find('h1', {'class':'mxm-track-title__track'}) 
@@ -32,8 +32,9 @@ def scrape(k):
         artist = soup.find('a', {'class':'mxm-track-title__artist mxm-track-title__artist-link'})
         artist = artist.contents[0]
         complete_list.append((title,artist,lyrics))
+        print("Song scraped successfully")
     df = pd.DataFrame(complete_list, columns=['title', 'artist', 'lyrics'])
-    print("Songs scraped successfully")
+    print("All songs scraped successfully")
     return df[:k]
 
 #function to classify song mood
