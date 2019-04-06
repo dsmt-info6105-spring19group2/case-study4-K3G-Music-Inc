@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-import scrapper-classifier
+import scrapperclassifier
 app= Flask(__name__)
 
 @app.route('/')
@@ -12,8 +12,8 @@ def get_data():
     if request.method == 'POST':
         # Get Lyrics
         k = int(request.form['k'])
-    scr = scrapper-classifier.scrape(k)
-    pred_song = scrapper-classifier.song_classifier(scr)
+    scr = scrapperclassifier.scrape(k)
+    pred_song = scrapperclassifier.song_classifier(scr)
     print(pred_song)
     return render_template('results.html',scr=pred_song)
     
