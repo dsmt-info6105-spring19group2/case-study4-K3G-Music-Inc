@@ -1,7 +1,6 @@
 # K3G Music Inc
 ### K3G Music enterprises is planning a new music station which would enable listeners to listen to musicbased on how they feel. They plan to use Machine learning to classify songs. Acknowledging there arenew songs added to their catalog on a daily basis, they intend to build a machine learning basedclassifier service which would classify songs as (Happy/Sad). 
-## Goal:
-        Goal 1: Mood classifier for a top-k list 
+## Goal: Mood classifier for a top-k list 
         1. Retrieve the top k list from MusicMatch and present them with a happy/sad icon
         2. Use Flask to deploy the frontend.
         3. Use the modeling approach allocated to you to compute the scores
